@@ -23,7 +23,7 @@ int main() {
     cout << "Enter your message: ";
     getline(cin, message);
 
-    int shift = 4;
+    int shift = 3;
 
     string encryptedMessage = encryptCaesarCipher(message, shift);
 
