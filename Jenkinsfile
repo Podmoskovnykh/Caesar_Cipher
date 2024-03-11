@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'gcc:latest'
+        }
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -9,9 +14,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                script {
-                    sh 'g++ -o caesar_cipher caesar_cipher.cpp'
-                }
+                sh 'g++ -o caesar_cipher caesar_cipher.cpp'
             }
             post {
                 success {
